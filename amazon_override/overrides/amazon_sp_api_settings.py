@@ -1,5 +1,11 @@
-# Copyright (c) 2022, My Company
-# For license information, please see license.txt
+# -*- coding: utf-8 -*-
+"""
+Amazon SP API Settings Override
+This module overrides the Amazon SP API Settings doctype to customize
+the behavior of the Amazon SP API integration.
+It includes custom validation for credentials, order details retrieval,
+and custom field setup.
+"""
 
 from datetime import datetime
 

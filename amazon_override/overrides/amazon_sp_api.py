@@ -1,5 +1,11 @@
-# Copyright (c) 2022, My Company
-# For license information, please see license.txt
+# -*- coding: utf-8 -*-
+"""
+Amazon SP API Settings Override
+This module overrides the Amazon SP API Settings doctype to customize
+the behavior of the Amazon SP API integration.
+It includes custom validation for credentials, order details retrieval,
+and custom field setup.
+"""
 
 from ecommerce_integrations.amazon.doctype.amazon_sp_api_settings.amazon_sp_api import SPAPI as BaseAPI, SPAPIError, Util
 from ecommerce_integrations.amazon.doctype.amazon_sp_api_settings.amazon_sp_api import Finances as BaseFinances
@@ -14,7 +20,6 @@ class SPAPI(BaseAPI):
     without requiring AWS credentials
     """
     
-    # https://github.com/amzn/selling-partner-api-docs/blob/main/guides/en-US/developer-guide/SellingPartnerApiDeveloperGuide.md#connecting-to-the-selling-partner-api
     AUTH_URL = "https://api.amazon.com/auth/o2/token"
     
     BASE_URI = "/"
@@ -122,22 +127,16 @@ class SPAPI(BaseAPI):
 class Finances(SPAPI, BaseFinances):
     """Amazon Finances API with simplified auth"""
     
-    BASE_URI = "/finances/v0/"
-    
-    # Inherit methods from BaseFinances but use our SPAPI implementation
+    BASE_URI = "/finances/v0/"  
     
 
 class Orders(SPAPI, BaseOrders):
     """Amazon Orders API with simplified auth"""
     
     BASE_URI = "/orders/v0/orders"
-    
-    # Inherit methods from BaseOrders but use our SPAPI implementation
 
 
 class CatalogItems(SPAPI, BaseCatalogItems):
     """Amazon Catalog Items API with simplified auth"""
     
     BASE_URI = "/catalog/v0"
-    
-    # Inherit methods from BaseCatalogItems but use our SPAPI implementation

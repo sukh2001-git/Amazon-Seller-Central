@@ -1,5 +1,12 @@
-# Copyright (c) 2022, Frappe and contributors
-# For license information, please see license.txt
+# -*- coding: utf-8 -*-
+"""
+Amazon SP API Repostory Override
+This module contains the AmazonRepository class, which provides methods
+to interact with the Amazon Selling Partner API (SP-API).
+to fetch order details from Amazon SP API.
+It includes methods for creating items, handling orders, and managing
+charges and fees.
+"""
 
 
 import time
