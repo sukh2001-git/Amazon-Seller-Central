@@ -133,6 +133,11 @@ app_license = "mit"
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
+
+override_doctype_class = {
+    "Amazon SP API Settings": "amazon_override.overrides.amazon_sp_api_settings.AmazonSPAPISettings"
+}
+
 # Document Events
 # ---------------
 # Hook on document methods and events
@@ -165,6 +170,11 @@ app_license = "mit"
 # 		"amazon_override.tasks.monthly"
 # 	],
 # }
+scheduler_events = {
+    "hourly": [
+        "amazon_override.overrides.amazon_sp_api_settings.schedule_get_order_details"
+    ]
+}
 
 # Testing
 # -------
