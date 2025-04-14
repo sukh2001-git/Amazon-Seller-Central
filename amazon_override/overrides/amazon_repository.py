@@ -413,6 +413,7 @@ class AmazonRepository:
             so.delivery_date = delivery_date
             so.transaction_date = transaction_date
             so.company = self.amz_setting.company
+            so.order_status = order.get("OrderStatus")
 
             for item in items:
                 so.append("items", item)
