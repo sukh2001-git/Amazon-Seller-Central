@@ -414,6 +414,8 @@ class AmazonRepository:
             so.transaction_date = transaction_date
             so.company = self.amz_setting.company
             so.order_status = order.get("OrderStatus")
+            so.business_order = 1 if order.get("isBusinessOrder") is True else 0
+            so.payment_method = "COD" if order.get("PaymentMethod") == "COD" else "Online"
 
             for item in items:
                 so.append("items", item)
